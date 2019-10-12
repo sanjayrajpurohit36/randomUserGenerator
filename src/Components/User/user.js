@@ -133,7 +133,7 @@ class User extends React.Component {
           ></input>
           <div className="member-count">
             {this.state.userList && this.state.userList.length !== 0
-              ? "Member Count :" + this.state.userList.length
+              ? "Member Count : " + this.state.userList.length
               : null}
           </div>
         </div>

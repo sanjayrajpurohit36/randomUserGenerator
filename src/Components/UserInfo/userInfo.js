@@ -44,6 +44,7 @@ class UserInfo extends React.Component {
               alt="no img"
               height="11px"
               onClick={this.goBack}
+              style={{ cursor:"pointer" }}
             />
           </span>
           <span className="user-info-back" onClick={this.goBack}>
