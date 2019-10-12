@@ -105,19 +105,26 @@ class User extends React.Component {
 
   searchMember = e => {
     var input = e.target.value.toUpperCase();
-    var res = this.state.userList.filter(
-      items =>
-        items.name.first.toUpperCase().indexOf(input) > -1 ||
-        items.name.last.toUpperCase().indexOf(input) > -1
-    );
-    this.setState({
-      userList: res
-    });
-    if (input === "") {
-      this.setState({
+    this.setState(
+      {
         userList: this.props.user
-      });
-    }
+      },
+      () => {
+        var res = this.state.userList.filter(
+          items =>
+            items.name.first.toUpperCase().indexOf(input) > -1 ||
+            items.name.last.toUpperCase().indexOf(input) > -1
+        );
+        this.setState({
+          userList: res
+        });
+        if (input === "") {
+          this.setState({
+            userList: this.props.user
+          });
+        }
+      }
+    );
   };
 
   render() {
@@ -198,22 +205,24 @@ class User extends React.Component {
                         ) : null}
                       </div>
                       <div onClick={this.getUserValue.bind(this, value)}>
-                      <div
-                        style={{
-                          width: "34px",
-                          height: "2px",
-                          background: "#bdbcbd",
-                          marginTop: "0.4rem"
-                        }}
-                      ></div>
+                        <div
+                          style={{
+                            width: "34px",
+                            height: "2px",
+                            background: "#bdbcbd",
+                            marginTop: "0.4rem"
+                          }}
+                        ></div>
                       </div>
                       <div
                         className="user-info-location"
                         onClick={this.getUserValue.bind(this, value)}
                       >
-                        <div style={{
-                          marginRight: "1rem"
-                        }}>
+                        <div
+                          style={{
+                            marginRight: "1rem"
+                          }}
+                        >
                           <img src={LocationPin} alt="" height="20px" />
                         </div>
                         <div>
