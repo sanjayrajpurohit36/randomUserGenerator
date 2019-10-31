@@ -1,3 +1,5 @@
+About: This is a simple react app to demonstrate the API calls and data handling using React.
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
